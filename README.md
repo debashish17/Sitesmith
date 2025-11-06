@@ -1,153 +1,227 @@
-# SiteSmith
+<div align="center">
 
-**AI-Powered Web Development IDE**
+# ✨ SiteSmith
 
-Transform your ideas into functional web applications through natural language conversations with AI. SiteSmith provides a complete development environment that generates, builds, and deploys applications directly in your browser.
+### 🚀 Build Something Amazing with AI
 
-## Features
+*Transform your ideas into functional web applications through natural language conversations with AI*
 
-- **Multiple AI Provider Support**: Choose from various AI providers including NVIDIA API, Claude AI, and more
-- **Project Management**: Save, organize, and manage your projects with MongoDB persistence
-- **Live Development Environment**: Full-featured IDE with Monaco editor, terminal, and file explorer  
-- **Instant Preview**: See your applications running live with WebContainer integration
-- **Full-Stack Support**: Build both frontend and backend applications seamlessly
-- **No Setup Required**: Everything runs in your browser - no local installation needed
-- **Advanced Code Generation**: Powered by state-of-the-art language models for superior code understanding
+[![GitHub stars](https://img.shields.io/github/stars/Mukul2956/Sitesmith?style=for-the-badge&logo=github&color=ff6b35)](https://github.com/Mukul2956/Sitesmith/stargazers)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
+[![Node.js](https://img.shields.io/badge/Node.js-18+-green?style=for-the-badge&logo=node.js)](https://nodejs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-blue?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org/)
 
-## Getting Started
+[🎬 View Demo](#-demo) • [🚀 Quick Start](#-quick-start) • [📚 Documentation](#-documentation) • [💬 Community](#-community)
 
-### Prerequisites
-- Node.js 18+ 
-- **AI Provider Keys** (choose from available providers):
-  - NVIDIA API key (free tier available)
-  - Anthropic Claude API key (premium)
-  - Additional providers supported - see AI Provider Options below
-- **MongoDB Atlas** (optional) - For project persistence and management
-
-### Installation
-
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/debashish17/Sitesmith.git
-   cd Sitesmith
-   ```
-
-2. **Install dependencies**
-   ```bash
-   # Backend
-   cd backend && npm install
-   
-   # Frontend  
-   cd ../frontend && npm install
-   ```
-
-3. **Configure environment**
-   ```bash
-   # Create .env file in backend directory
-   cp backend/.env.example backend/.env
-   
-   # Configure your preferred AI provider:
-   # Set AI_PROVIDER to your chosen provider (nvidia, claude, etc.)
-   # Add the corresponding API key for your selected provider
-   # See AI Provider Options section for detailed setup
-   
-   # Optional: Add MongoDB URI for project persistence
-   # MONGODB_URI=your_mongodb_connection_string
-   ```
-
-4. **Start the application**
-   ```bash
-   # Terminal 1 - Backend (port 3000)
-   cd backend && npm run dev
-   
-   # Terminal 2 - Frontend (port 5173)
-   cd frontend && npm run dev
-   ```
-
-5. **Open your browser**
-   Navigate to `http://localhost:5173`
-
-## AI Provider Options
-
-SiteSmith supports multiple AI providers to give you flexibility in choosing the best model for your needs:
-
-### Currently Supported Providers
-
-#### NVIDIA API
-- **Model**: Qwen3-Coder-480B-Instruct  
-- **Cost**: Free tier available with rate limits
-- **Best for**: Learning, experimentation, and personal projects
-- **Setup**: Get API key from [build.nvidia.com](https://build.nvidia.com/)
-
-#### Claude AI (Anthropic)
-- **Model**: Claude Sonnet 3.5
-- **Cost**: Pay-per-use API charges
-- **Best for**: Production applications and complex projects  
-- **Setup**: Requires Anthropic API key with billing
-
-### Adding More Providers
-
-SiteSmith is designed with an extensible architecture that makes it easy to integrate additional AI providers. Future supported providers may include:
-- OpenAI GPT models
-- Google Gemini
-- Cohere Command
-- Local models via Ollama
-- Custom API endpoints
-
-*Want to request a specific provider? [Open an issue](https://github.com/debashish17/Sitesmith/issues) on our GitHub repository.*
-
-## Project Management
-
-- **Auto-Save**: Projects are automatically saved to MongoDB
-- **Project History**: Track all changes and conversation history
-- **Organization**: Filter projects by status (active, completed, archived)
-- **Collaboration**: Share project URLs with team members
-- **Backup**: All code, files, and AI conversations are preserved
-
-## How It Works
-
-1. **Choose Your AI Provider**: Select from multiple supported AI providers based on your needs
-2. **Describe Your Project**: Tell the AI what you want to build in natural language
-3. **Watch It Generate**: AI creates the complete application structure and code
-4. **Live Development**: Edit code with full IDE features and see instant previews
-5. **Save & Manage**: Projects are automatically saved to MongoDB for future access
-6. **Deploy Instantly**: Applications run directly in the browser via WebContainer
-
-## Technology Stack
-
-- **Frontend**: React, TypeScript, Vite, Tailwind CSS
-- **Backend**: Node.js, Express, TypeScript
-- **AI Providers**: 
-  - Multiple provider support (NVIDIA, Claude, and more)
-  - Extensible architecture for adding new AI services
-  - Provider-specific optimizations and model selection
-- **Database**: MongoDB Atlas for project persistence
-- **Runtime**: WebContainer for browser-based execution
-- **Editor**: Monaco Editor (VS Code engine)
-
-## Use Cases
-
-- **Rapid prototyping and MVP development** with flexible AI provider options
-- **Learning web development concepts** with access to different AI models
-- **Code generation and boilerplate creation** using cutting-edge language models
-- **Educational coding environment** with project history and management
-- **Quick proof-of-concept applications** with persistent project storage
-- **Team collaboration** with shareable project links and version history
-- **Cost optimization** by choosing the most suitable AI provider for each project
-
-## Contributing
-
-We welcome contributions! Please feel free to submit a Pull Request.
-
-## License
-
-MIT License - see [LICENSE](LICENSE) file for details.
-
-## Links
-
-- [Repository](https://github.com/debashish17/Sitesmith)
-- [Issues](https://github.com/debashish17/Sitesmith/issues)
+</div>
 
 ---
 
-Built for developers who love AI-powered productivity
+## 🎯 What is SiteSmith?
+
+SiteSmith is a revolutionary **AI-powered web development platform** that transforms natural language descriptions into fully functional web applications. No more struggling with boilerplate code or complex setup processes – just describe what you want to build, and watch the magic happen! ✨
+
+<div align="center">
+  
+### 🎬 Demo
+
+> **Coming Soon:** Interactive demo showcasing SiteSmith's capabilities
+
+</div>
+
+## 🌟 Key Features
+
+<table>
+<tr>
+<td width="50%">
+
+### 🤖 **Multiple AI Providers**
+- **NVIDIA API** - Free tier available
+- **Claude AI** - Premium experience
+- **Extensible architecture** for future providers
+
+### 💾 **Smart Project Management**
+- Auto-save with MongoDB persistence
+- Project history & version tracking
+- Status filtering (active, completed, archived)
+
+</td>
+<td width="50%">
+
+### 🛠️ **Full-Stack Development**
+- Monaco Editor (VS Code engine)
+- Live preview with WebContainer
+- Built-in terminal & file explorer
+- Real-time code generation
+
+### 🎨 **Modern Tech Stack**
+- React + TypeScript + Vite
+- Tailwind CSS for styling
+- Express.js backend
+- MongoDB Atlas database
+
+</td>
+</tr>
+</table>
+
+## 🚀 Quick Start
+
+### Prerequisites
+
+Before you begin, ensure you have:
+- 📦 **Node.js 18+** installed
+- 🔑 **AI Provider API Key** (NVIDIA or Claude)
+- 🍃 **MongoDB Atlas** connection (optional, for project persistence)
+
+### Installation
+
+```bash
+# 1️⃣ Clone the repository
+git clone https://github.com/Mukul2956/Sitesmith.git
+cd Sitesmith
+
+# 2️⃣ Install backend dependencies
+cd backend && npm install
+
+# 3️⃣ Install frontend dependencies  
+cd ../frontend && npm install
+
+# 4️⃣ Configure environment variables
+cd ../backend && cp .env.example .env
+# Edit .env file with your API keys and MongoDB URI
+
+# 5️⃣ Start the development servers
+# Terminal 1 - Backend
+npm run dev
+
+# Terminal 2 - Frontend (in another terminal)
+cd frontend && npm run dev
+```
+
+### 🎉 Launch
+
+Open your browser and navigate to **`http://localhost:5173`**
+
+That's it! You're ready to build something amazing! 🚀
+
+## 🤖 AI Provider Setup
+
+<details>
+<summary><b>🟢 NVIDIA API (Free Tier)</b></summary>
+
+1. Visit [build.nvidia.com](https://build.nvidia.com/)
+2. Sign up for a free account
+3. Generate your API key
+4. Add to `.env`: `NVIDIA_API_KEY=your_key_here`
+
+**Best for:** Learning, experimentation, personal projects
+</details>
+
+<details>
+<summary><b>🟣 Claude AI (Premium)</b></summary>
+
+1. Visit [console.anthropic.com](https://console.anthropic.com/)
+2. Create an account and add billing information
+3. Generate your API key
+4. Add to `.env`: `CLAUDE_API_KEY=your_key_here`
+
+**Best for:** Production applications, complex projects
+</details>
+
+## 📚 Documentation
+
+### 🏗️ How It Works
+
+```mermaid
+graph TD
+    A[💭 Describe Your Project] --> B[🤖 AI Processes Request]
+    B --> C[📝 Generates Code Structure]
+    C --> D[🛠️ Live Development Environment]
+    D --> E[👀 Real-time Preview]
+    E --> F[💾 Auto-save to MongoDB]
+    F --> G[🚀 Deploy & Share]
+```
+
+### 🎯 Use Cases
+
+| Use Case | Description | Perfect For |
+|----------|-------------|-------------|
+| 🏃‍♂️ **Rapid Prototyping** | Build MVPs in minutes | Startups, Product Managers |
+| 📚 **Learning** | Understand code patterns | Students, Beginners |
+| ⚡ **Boilerplate Generation** | Skip repetitive setup | Experienced Developers |
+| 🎓 **Education** | Interactive coding environment | Teachers, Bootcamps |
+| 🤝 **Collaboration** | Share projects instantly | Teams, Code Reviews |
+
+### 🔧 Technology Stack
+
+<div align="center">
+
+| Category | Technologies |
+|----------|-------------|
+| **Frontend** | ![React](https://img.shields.io/badge/React-20232A?style=flat&logo=react&logoColor=61DAFB) ![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=flat&logo=typescript&logoColor=white) ![Vite](https://img.shields.io/badge/Vite-646CFF?style=flat&logo=vite&logoColor=white) ![Tailwind](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=flat&logo=tailwind-css&logoColor=white) |
+| **Backend** | ![Node.js](https://img.shields.io/badge/Node.js-43853D?style=flat&logo=node.js&logoColor=white) ![Express](https://img.shields.io/badge/Express.js-404D59?style=flat&logo=express&logoColor=white) ![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=flat&logo=typescript&logoColor=white) |
+| **Database** | ![MongoDB](https://img.shields.io/badge/MongoDB-4EA94B?style=flat&logo=mongodb&logoColor=white) |
+| **AI Providers** | ![NVIDIA](https://img.shields.io/badge/NVIDIA-76B900?style=flat&logo=nvidia&logoColor=white) ![Anthropic](https://img.shields.io/badge/Claude-000000?style=flat&logo=anthropic&logoColor=white) |
+
+</div>
+
+## 🤝 Contributing
+
+We love contributions! Here's how you can help make SiteSmith even better:
+
+### 🐛 Found a Bug?
+Open an [issue](https://github.com/Mukul2956/Sitesmith/issues) with detailed reproduction steps.
+
+### 💡 Have an Idea?
+We'd love to hear it! Open a [feature request](https://github.com/Mukul2956/Sitesmith/issues/new?template=feature_request.md).
+
+### 🔧 Want to Code?
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## 🌟 Community
+
+<div align="center">
+
+### Join our growing community of developers!
+
+[![GitHub Discussions](https://img.shields.io/badge/GitHub-Discussions-181717?style=for-the-badge&logo=github)](https://github.com/Mukul2956/Sitesmith/discussions)
+[![Discord](https://img.shields.io/badge/Discord-7289DA?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/sitesmith)
+[![Twitter](https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/sitesmith_dev)
+
+</div>
+
+## 📈 Roadmap
+
+- [ ] 🔌 **More AI Providers** (OpenAI, Google Gemini)
+- [ ] 🌐 **Deployment Integration** (Vercel, Netlify)
+- [ ] 👥 **Real-time Collaboration**
+- [ ] 📱 **Mobile App**
+- [ ] 🎨 **Theme Customization**
+- [ ] 🔧 **Plugin System**
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🙏 Acknowledgments
+
+- 💙 **WebContainer Team** for browser-based development environment
+- 🤖 **AI Provider Teams** (NVIDIA, Anthropic) for powerful language models
+- 🎨 **Open Source Community** for amazing tools and libraries
+- 👥 **Contributors** who help make SiteSmith better every day
+
+---
+
+<div align="center">
+
+### ⭐ Star us on GitHub if SiteSmith helps you build amazing things!
+
+**Made with ❤️ by developers, for developers**
+
+[⬆️ Back to top](#-sitesmith)
+
+</div>

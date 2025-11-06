@@ -1,14 +1,14 @@
 {
-  "name": "backend",
+  "name": "sitesmith-backend",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
     "dev": "tsc -b && node dist/index.js"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["ai", "web-development", "code-generation", "sitesmith"],
+  "author": "SiteSmith",
   "license": "ISC",
-  "description": "",
+  "description": "SiteSmith backend API for AI-powered web application generation",
   "type": "module",
   "dependencies": {
     "@anthropic-ai/sdk": "^0.64.0",

@@ -12,6 +12,7 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
 } from '@/components/ui/alert-dialog';
+import Navigation from '@/components/Navigation';
 
 const ProjectsPage: React.FC = () => {
   const navigate = useNavigate();
@@ -148,22 +149,41 @@ const ProjectsPage: React.FC = () => {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-background flex items-center justify-center">
-        <div className="text-center glass-strong p-8 rounded-2xl">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary mx-auto"></div>
-          <p className="mt-4 text-muted-foreground">Loading projects...</p>
+      <div className="min-h-screen bg-gradient-to-b from-[#181818] to-[#ea8dcc] relative overflow-hidden" style={{
+        background: 'radial-gradient(ellipse 160% 120% at top, #181919 0%, #181919 32%, #1e2961 45%, #4b75f4 58%, #7b82ea 68%, #ea8dcc 82%, #ff6b35 100%)'
+      }}>
+        <Navigation />
+        <div className="relative z-10 flex items-center justify-center min-h-screen">
+          <div className="text-center bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-8">
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-white mx-auto"></div>
+            <p className="mt-4 text-white/70">Loading projects...</p>
+          </div>
         </div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-background">
-      <div className="max-w-7xl mx-auto px-4 py-8">
+    <div className="min-h-screen bg-gradient-to-b from-[#181818] to-[#ea8dcc] relative overflow-hidden" style={{
+      background: 'radial-gradient(ellipse 160% 120% at top, #181919 0%, #181919 32%, #1e2961 45%, #4b75f4 58%, #7b82ea 68%, #ea8dcc 82%, #ff6b35 100%)'
+    }}>
+      {/* Grain texture overlay */}
+      <div 
+        className="absolute inset-0 opacity-60 pointer-events-none"
+        style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
+          mixBlendMode: 'multiply'
+        }}
+      />
+      
+      {/* Navigation */}
+      <Navigation />
+      
+      <div className="relative z-10 max-w-7xl mx-auto px-4 py-8">
         <div className="flex flex-col md:flex-row justify-between items-center mb-8 gap-4">
           <div>
-            <h1 className="text-3xl font-bold text-foreground">My Projects</h1>
-            <p className="text-muted-foreground mt-2">
+            <h1 className="text-3xl font-bold text-white">My Projects</h1>
+            <p className="text-white/70 mt-2">
               Manage and continue working on your AI-generated projects
             </p>
           </div>
@@ -198,7 +218,7 @@ const ProjectsPage: React.FC = () => {
             <button
               key={status}
               onClick={() => {
-                setFilter(status as any);
+                setFilter(status as 'all' | 'active' | 'completed' | 'archived');
                 setCurrentPage(1);
               }}
               className={`px-4 py-2 rounded-lg text-sm font-medium transition-all capitalize ${
