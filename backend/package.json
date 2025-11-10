@@ -3,7 +3,10 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "dev": "tsc -b && node dist/index.js"
+    "build": "tsc -b",
+    "dev": "tsc -b & node dist/index.js",
+    "start": "node dist/index.js",
+    "dev-win": "tsc -b && node dist/index.js"
   },
   "keywords": ["ai", "web-development", "code-generation", "sitesmith"],
   "author": "SiteSmith",
@@ -20,10 +23,16 @@
     "mongoose": "^8.19.2",
     "openai": "^6.7.0",
     "typescript": "^5.9.2",
-    "uuid": "^13.0.0"
+    "uuid": "^13.0.0",
+    "faiss-node": "^0.5.1",
+    "@xenova/transformers": "^2.17.2",
+    "natural": "^6.12.0",
+    "compromise": "^14.10.0",
+    "cohere-ai": "^7.7.0"
   },
   "devDependencies": {
     "@types/node": "^24.5.2",
-    "@types/uuid": "^10.0.0"
+    "@types/uuid": "^10.0.0",
+    "@types/natural": "^5.1.5"
   }
 }

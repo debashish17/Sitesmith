@@ -73,7 +73,21 @@ The frontend and backend can be developed independently and integrated via API c
 
 
 
+
 const app = express();
+
+// CORS configuration for Vercel, ngrok, and local development
+const allowedOrigins = [
+    'https://sitesmith-three.vercel.app',  // Your Vercel domain
+    'https://ludie-ectypal-deloras.ngrok-free.dev',   // Your ngrok URL
+    'http://localhost:8080',              // Local development
+    'http://localhost:5173'               // Alternative local port
+];
+
+app.use(cors({
+    origin: allowedOrigins,
+    credentials: true
+}));
 
 // Initialize AI clients
 const anthropic = new Anthropic({
@@ -93,7 +107,6 @@ const AI_PROVIDER = process.env.AI_PROVIDER || 'nvidia';
 // Connect to MongoDB
 connectDatabase();
 
-app.use(cors());
 // Increase body parser limits for large conversation histories and projects
 app.use(express.json({ limit: '50mb' }));
 app.use(express.urlencoded({ limit: '50mb', extended: true }));

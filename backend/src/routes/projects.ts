@@ -6,7 +6,8 @@ import {
   updateProject,
   addFileToProject,
   addConversationMessage,
-  deleteProject
+  deleteProject,
+  processSmartChange
 } from '../controllers/projectController.js';
 
 const router = express.Router();
@@ -21,5 +22,6 @@ router.delete('/:id', deleteProject);                     // DELETE /api/project
 // Project-specific operations
 router.post('/:id/files', addFileToProject);              // POST /api/projects/:id/files
 router.post('/:id/conversation', addConversationMessage); // POST /api/projects/:id/conversation
+router.post('/:id/smart-change', processSmartChange);     // POST /api/projects/:id/smart-change
 
 export default router;

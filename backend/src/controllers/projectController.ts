@@ -2,6 +2,10 @@ import type { Request, Response } from 'express';
 import { Project } from '../models/Project.js';
 import type { IProject } from '../models/Project.js';
 import { v4 as uuidv4 } from 'uuid';
+import SmartChangeHandler from '../nlp/SmartChangeHandler.js';
+
+// Initialize the smart change handler
+const smartChangeHandler = new SmartChangeHandler();
 
 // Create a new project
 export const createProject = async (req: Request, res: Response): Promise<void> => {
@@ -340,6 +344,85 @@ export const deleteProject = async (req: Request, res: Response): Promise<void> 
     console.error('Error deleting project:', error);
     res.status(500).json({ 
       error: 'Failed to delete project',
+      details: error instanceof Error ? error.message : 'Unknown error'
+    });
+  }
+};
+
+// Process smart change request using NLP
+export const processSmartChange = async (req: Request, res: Response): Promise<void> => {
+  try {
+    console.log('🤖 SMART CHANGE REQUEST');
+    const { id } = req.params;
+    const { userRequest, includeIndexing = false } = req.body;
+
+    if (!userRequest) {
+      res.status(400).json({ error: 'userRequest is required' });
+      return;
+    }
+
+    console.log('  - Project ID:', id);
+    console.log('  - User Request:', userRequest);
+    console.log('  - Include Indexing:', includeIndexing);
+
+    const project = await Project.findOne({ id });
+    
+    if (!project) {
+      res.status(404).json({ error: 'Project not found' });
+      return;
+    }
+
+    // Prepare current files for NLP analysis
+    const currentFiles = project.files.map((file: any) => ({
+      path: file.path,
+      content: file.content
+    }));
+
+    console.log('  - Analyzing', currentFiles.length, 'files');
+
+    // Index project files if requested (typically only on first smart change)
+    if (includeIndexing) {
+      console.log('  - Indexing project files for semantic search...');
+      await smartChangeHandler.indexProjectFiles(currentFiles);
+    }
+
+    // Process the change request with NLP
+    const smartResponse = await smartChangeHandler.processChangeRequest(
+      userRequest,
+      currentFiles
+    );
+
+    console.log('✅ Smart change processed');
+    console.log('  - Intent:', smartResponse.changeRequest.intent);
+    console.log('  - Confidence:', smartResponse.changeRequest.confidence.toFixed(2));
+    console.log('  - Affected files:', smartResponse.affectedFiles.length);
+    console.log('  - Complexity:', smartResponse.estimatedComplexity);
+
+    // Add the smart analysis to conversation for context
+    const analysisMessage = {
+      role: 'system' as const,
+      content: JSON.stringify({
+        type: 'smart_analysis',
+        originalRequest: userRequest,
+        analysis: smartResponse
+      }),
+      timestamp: new Date()
+    };
+
+    project.conversation.push(analysisMessage);
+    project.lastAccessedAt = new Date();
+    await project.save();
+
+    res.json({
+      success: true,
+      analysis: smartResponse,
+      message: 'Smart change analysis completed'
+    });
+
+  } catch (error) {
+    console.error('❌ Error processing smart change:', error);
+    res.status(500).json({ 
+      error: 'Failed to process smart change',
       details: error instanceof Error ? error.message : 'Unknown error'
     });
   }

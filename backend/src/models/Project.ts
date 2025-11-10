@@ -25,7 +25,7 @@ export interface IProject extends Document {
     createdAt: Date;
   }>;
   conversation: Array<{
-    role: 'user' | 'assistant';
+    role: 'user' | 'assistant' | 'system';
     content: string;
     timestamp: Date;
   }>;
@@ -55,7 +55,7 @@ const StepSchema = new Schema({
 });
 
 const ConversationSchema = new Schema({
-  role: { type: String, enum: ['user', 'assistant'], required: true },
+  role: { type: String, enum: ['user', 'assistant', 'system'], required: true },
   content: { type: String, required: true },
   timestamp: { type: Date, default: Date.now }
 });
